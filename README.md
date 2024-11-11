@@ -1,1 +1,1 @@
-# Steamify
+# Streamify
