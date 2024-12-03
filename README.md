@@ -1,12 +1,12 @@
 # Streamify: A Music Streaming Application
 
-Streamify is a music streaming platform developed using Django, inspired by Spotify. It allows users to search and upload songs, stream music, and interact with a variety of music metadata. Streamify uses a distributed database setup with sharding and replication for efficient data management.
+Streamify is a music streaming platform developed using Django, inspired by Spotify. It allows users to search and upload songs, and stream music. Streamify uses a distributed database setup using MongoDB with sharding and replication for efficient data management.
 
 ## Features
 - **User Registration & Login**: Secure user authentication to access the platform.
 - **Song Upload**: Users can upload songs along with metadata like artist name, genre, track name, and cover image.
-- **Song Search**: Search songs based on title, artist, or genre.
-- **Stream Music**: Stream audio files and display cover art dynamically.
+- **Song Search**: Search songs based on artist or genre.
+- **Stream Music**: Stream audio files and display cover images dynamically.
 - **Distributed Database**: The database is sharded and replicated across two shards for high availability and scalability.
 
 ## API Endpoints
