@@ -2,8 +2,8 @@ from pymongo import MongoClient
 import requests
 from bson.binary import Binary
 
-MONGO_URI = "mongodb://ec2-3-89-250-161.compute-1.amazonaws.com:28081"
-DB_NAME = "streamify"
+MONGO_URI = "mongodb://ec2-3-92-62-198.compute-1.amazonaws.com:28081"
+DB_NAME = "streamdb"
 COLLECTION_NAME = "music"
 
 def connect_mongodb():
