@@ -16,7 +16,7 @@ def connect_mongodb():
 def upload_audio_file(request):
 
     document = {
-        "audioData" : request.FILES["audioFile"].read(),
+        "audioData" : request.FILES["audioData"].read(),
         "coverImage" : request.FILES["coverImage"].read(),
         "trackName" : request.POST["trackName"],
         "artistName" : request.POST["artistName"],
