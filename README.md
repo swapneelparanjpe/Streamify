@@ -7,7 +7,7 @@ Streamify is a music streaming platform developed using Django, inspired by Spot
 - **Song Upload**: Users can upload songs along with metadata like artist name, genre, track name, and cover image.
 - **Song Search**: Search songs based on artist or genre.
 - **Stream Music**: Stream audio files and display cover images dynamically.
-- **Distributed Database**: The database is sharded and replicated across two shards for high availability and scalability.
+- **Distributed Database**: The database is sharded across two shards and replicated twice in each shard for high availability and scalability.
 
 ## API Endpoints
 
@@ -33,7 +33,7 @@ Streamify is a music streaming platform developed using Django, inspired by Spot
 
 The database uses **sharding** and **replication** to handle large amounts of data efficiently:
 - **Sharding**: The database is sharded based on a composite hash of the artist name and genre.
-- **Replication**: Each shard has one additional replica for fault tolerance and high availability.
+- **Replication**: Each shard has two additional replicas for fault tolerance and high availability.
 - **Hosting**: The database is hosted on AWS EC2 instances for scalable and reliable storage.
 
 ## Technologies Used
