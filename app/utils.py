@@ -2,9 +2,9 @@ from pymongo import MongoClient
 import requests
 from bson.binary import Binary
 
-MONGO_URI = "mongodb://ec2-3-92-62-198.compute-1.amazonaws.com:28081"
-DB_NAME = "streamdb"
-COLLECTION_NAME = "music"
+MONGO_URI = "mongodb+srv://streamify-admin:uRveGo7v8rW1uFF1@streamify-cluster.nf1vv.mongodb.net/"
+DB_NAME = "streamify-db"
+COLLECTION_NAME = "songs"
 
 def connect_mongodb():
     client = MongoClient(MONGO_URI)
@@ -36,8 +36,9 @@ def get_search_results(search_text):
 
     query = {
     "$or": [
-        {"artistName": search_text},
-        {"genreName": search_text}
+        {"artistName": {"$regex": search_text, "$options": "i"}},
+        {"genreName": {"$regex": search_text, "$options": "i"}},
+        {"trackName": {"$regex": search_text, "$options": "i"}}
     ]
 }
     results = list(collection.find(query).limit(18))

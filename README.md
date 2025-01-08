@@ -42,6 +42,6 @@ The database uses **sharding** and **replication** to handle large amounts of da
 - **Database**: MongoDB
 - **Cloud Hosting**: AWS EC2 for hosting the application and database
 
-## Streamify URL
+## Streamify Demo
 
-http://3.95.186.196:8000
+Watch the demo [here](https://drive.google.com/file/d/1yv2El7NinPVFGMfz-V4jbqoQXalySr82/view?usp=sharing)

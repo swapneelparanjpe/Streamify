@@ -5,12 +5,12 @@ import csv
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # MongoDB configuration
-MONGO_URI = "mongodb://ec2-3-89-250-161.compute-1.amazonaws.com:28081"
-DB_NAME = "streamify"
-COLLECTION_NAME = "music"
+MONGO_URI = "mongodb+srv://streamify-admin:uRveGo7v8rW1uFF1@streamify-cluster.nf1vv.mongodb.net/"
+DB_NAME = "streamify-db"
+COLLECTION_NAME = "songs"
 
 # Path to the CSV file
-csv_file_path = "./updated_music_dataset_with_coverImages.csv"
+csv_file_path = "./music_dataset.csv"
 
 # Required attributes
 required_fields = [
@@ -21,7 +21,7 @@ required_fields = [
     "releaseDate",
     "trackName",
     "albumName",
-    "duration",  # This will be converted to seconds
+    "duration",
     "coverImage"
 ]
 
@@ -73,9 +73,9 @@ if __name__ == "__main__":
     successfully_uploaded = 0
 
     # Open the CSV file and read records
-    with open(csv_file_path, 'r') as csv_file:
+    with open(csv_file_path, encoding="utf8") as csv_file:
         csv_reader = csv.DictReader(csv_file)
-        rows_to_process = list(csv_reader)[:5000]  # Limit to the first 5000 rows
+        rows_to_process = list(csv_reader)[:5000]
 
         # Use ThreadPoolExecutor for multithreading
         with ThreadPoolExecutor(max_workers=10) as executor:  # Adjust the number of threads as needed
@@ -85,6 +85,7 @@ if __name__ == "__main__":
                 total_records += 1
                 if future.result():  # Check if the upload was successful
                     successfully_uploaded += 1
+                    print(f"{successfully_uploaded} songs uploaded successfully")
 
     # Print upload summary
     print(f"Upload complete. Total Records Processed: {total_records}")
