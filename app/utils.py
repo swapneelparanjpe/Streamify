@@ -2,7 +2,7 @@ from pymongo import MongoClient
 import requests
 from bson.binary import Binary
 
-MONGO_URI = "mongodb+srv://streamify-admin:uRveGo7v8rW1uFF1@streamify-cluster.nf1vv.mongodb.net/"
+MONGO_URI = "mongodb://ec2-3-89-250-161.compute-1.amazonaws.com:28081"
 DB_NAME = "streamify-db"
 COLLECTION_NAME = "songs"
 
