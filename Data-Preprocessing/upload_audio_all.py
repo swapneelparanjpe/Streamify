@@ -3,9 +3,10 @@ from pymongo import MongoClient
 from bson.binary import Binary
 import csv
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import os
 
 # MongoDB configuration
-MONGO_URI = "mongodb://ec2-3-89-250-161.compute-1.amazonaws.com:28081"
+MONGO_URI = "mongodb+srv://streamify-admin:" + os.environ.get('STREAMIFY_USER_PASSWORD') + "@streamify-cluster.nf1vv.mongodb.net/"
 DB_NAME = "streamify-db"
 COLLECTION_NAME = "songs"
 
@@ -75,7 +76,7 @@ if __name__ == "__main__":
     # Open the CSV file and read records
     with open(csv_file_path, encoding="utf8") as csv_file:
         csv_reader = csv.DictReader(csv_file)
-        rows_to_process = list(csv_reader)[:5000]
+        rows_to_process = list(csv_reader)[:500]
 
         # Use ThreadPoolExecutor for multithreading
         with ThreadPoolExecutor(max_workers=10) as executor:  # Adjust the number of threads as needed
