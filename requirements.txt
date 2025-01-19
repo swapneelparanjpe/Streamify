@@ -2,4 +2,7 @@ django
 django-crispy-forms
 crispy-bootstrap5
 pymongo
+dj-database-url
+psycopg2
+gunicorn
 whitenoise

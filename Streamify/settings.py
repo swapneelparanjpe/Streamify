@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-f!gms(el$dx$-cpy(@+xe5j#-=9o*&)(@1ly7cd)iw)6a+%82%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -82,9 +83,11 @@ WSGI_APPLICATION = 'Streamify.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(os.getcwd(), 'tmp', 'db.sqlite3'),
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+DATABASES['default'] = dj_database_url.parse("postgresql://streamify_postgresql_user:6yMoCLuWkIN9kYWg0nUavep8y8whyFMw@dpg-cu654p0gph6c73c3ogs0-a.oregon-postgres.render.com/streamify_postgresql")
 
 
 # Password validation
