@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-f!gms(el$dx$-cpy(@+xe5j#-=9o*&)(@1ly7cd)iw)6a+%82%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', 'localhost']
 
 
 # Application definition
@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'Streamify.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(os.getcwd(), 'tmp', 'db.sqlite3'),
     }
 }
 
